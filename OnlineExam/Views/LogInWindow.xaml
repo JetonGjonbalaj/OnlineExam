@@ -1,0 +1,59 @@
+﻿<Window x:Class="OnlineExam.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineExam"
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="{StaticResource Blue}"
+              Grid.Row="0" Grid.Column="0">
+            <StackPanel VerticalAlignment="Center">
+                <Image Style="{StaticResource Logo}" />
+
+                <Label Content="Online Exam"
+                       HorizontalAlignment="Center"
+                       Style="{StaticResource Header}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel MaxWidth="280"
+                    VerticalAlignment="Center"
+                    Grid.Row="0" Grid.Column="1">
+            <Label Content="Log In"
+                   Margin="0, 0, 0, 40"
+                   HorizontalAlignment="Center"
+                   Style="{StaticResource Header}" />
+
+            <ItemsControl ItemsSource="{Binding Errors}" Margin="0, 0, 0, 10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="{StaticResource Danger}" Content="{Binding .}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <inputLayout:SfTextInputLayout Hint="Email"
+                                           ContainerType="Filled">
+                <TextBox x:Name="Email" />
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout Hint="Password"
+                                           ContainerType="Filled">
+                <PasswordBox x:Name="Password" />
+            </inputLayout:SfTextInputLayout>
+
+            <Button Content="Log In"
+                    HorizontalAlignment="Stretch"
+                    Background="{StaticResource Blue}"
+                    Click="LogIn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

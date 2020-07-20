@@ -1,0 +1,42 @@
+﻿<Page x:Class="OnlineExam.Views.User.Exam.ShowFinishedExams"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineExam.Views.User.Exam"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowFinishedExams" Background="{StaticResource Light}">
+
+    <ScrollViewer Padding="10" VerticalScrollBarVisibility="auto" Margin="0, 0, 0, 20">
+        <StackPanel>
+            <ItemsControl ItemsSource="{Binding Errors}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="{StaticResource Danger}" Content="{Binding .}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl ItemsSource="{Binding Path=ExamsTaken}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="{StaticResource LightBlue}" Margin="0, 0, 0, 10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                <Label Content="{Binding Path=Exam.ExamName}" />
+                                <Label Content="| " />
+                                <TextBlock Text="{Binding Path=Result}" VerticalAlignment="Center" />
+                                <Label Content=" | " />
+                                <TextBlock Text="{Binding Path=Status}" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

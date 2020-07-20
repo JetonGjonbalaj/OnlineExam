@@ -1,0 +1,98 @@
+﻿<Page x:Class="OnlineExam.Views.Admin.Professor.SaveProfessor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineExam.Views.Admin.Professor" xmlns:inputLayout="http://schemas.syncfusion.com/wpf"
+      xmlns:validate="clr-namespace:OnlineExam.Validation"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SaveProfessor" Background="{StaticResource Light}">
+
+    <ScrollViewer>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Content="Save Professor"
+                   Style="{StaticResource Header}" />
+
+            <StackPanel Grid.Row="1" Margin="0, 0, 0, 10">
+                <ItemsControl ItemsSource="{Binding Errors}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Label Foreground="{StaticResource Danger}" Content="{Binding .}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <inputLayout:SfTextInputLayout Hint="FirstName"
+                                               ContainerType="Filled"
+                                               CharCountVisibility="Visible"
+                                               CharMaxLength="{Binding Source={x:Static validate:ValidationProperties.FirstNameLength}}">
+                    <TextBox Text="{Binding Path=Professor.FirstName, UpdateSourceTrigger=PropertyChanged}" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="LastName"
+                                               ContainerType="Filled"
+                                               CharCountVisibility="Visible"
+                                               CharMaxLength="{Binding Source={x:Static validate:ValidationProperties.LastNameLength}}">
+                    <TextBox Text="{Binding Path=Professor.LastName, UpdateSourceTrigger=PropertyChanged}" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="Email"
+                                               ContainerType="Filled"
+                                               CharCountVisibility="Visible"
+                                               CharMaxLength="{Binding Source={x:Static validate:ValidationProperties.EmailLength}}">
+                    <TextBox Text="{Binding Path=Professor.Email, UpdateSourceTrigger=PropertyChanged}" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="New Password"
+                                               ContainerType="Filled"
+                                               CharCountVisibility="Visible"
+                                               CharMaxLength="{Binding Source={x:Static validate:ValidationProperties.PasswordLength}}">
+                    <PasswordBox x:Name="password" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="ProfessorId"
+                                               ContainerType="Filled"
+                                               CharCountVisibility="Visible"
+                                               CharMaxLength="{Binding Source={x:Static validate:ValidationProperties.ProfessorIdLength}}">
+                    <TextBox Text="{Binding Path=Professor.ProfessorId, UpdateSourceTrigger=PropertyChanged}" />
+                </inputLayout:SfTextInputLayout>
+
+                <Label Content="Select a department" />
+                <ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding Professor.Department}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DepartmentName}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Department selected:" />
+                    <Label Content="{Binding Professor.Department.DepartmentName}" />
+                </StackPanel>
+
+                <Label Content="Select a course" />
+                <ComboBox ItemsSource="{Binding Courses}" SelectedItem="{Binding Professor.Course}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CourseName}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Course selected:" />
+                    <Label Content="{Binding Professor.Course.CourseName}" />
+                </StackPanel>
+            </StackPanel>
+
+            <Button Grid.Row="2"
+                    Content="Save Professor"
+                    HorizontalAlignment="Right"
+                    Click="SaveProfessor_Click"
+                    Background="{StaticResource Blue}" />
+        </Grid>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,58 @@
+﻿<Application x:Class="OnlineExam.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:OnlineExam"
+             xmlns:examVal="clr-namespace:OnlineExam.Enums"
+             StartupUri="Views/LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Colors-->
+            <SolidColorBrush x:Key="Light" Color="#fefefe" />
+            <SolidColorBrush x:Key="LightBlue" Color="#F2F4FF" />
+            <SolidColorBrush x:Key="Blue" Color="#87F6FF" />
+            <SolidColorBrush x:Key="DarkBlue" Color="#2E6171" />
+            <SolidColorBrush x:Key="Dark" Color="#434343" />
+            <SolidColorBrush x:Key="Danger" Color="#EA8689" />
+            <SolidColorBrush x:Key="Success" Color="#79B988" />
+            <!--Defaults-->
+            <Style x:Key="Logo" TargetType="{x:Type Image}">
+                <Setter Property="Source" Value="Assets/Logo.png" />
+                <Setter Property="Width" Value="112" />
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Padding" Value="16, 8" />
+                <Setter Property="Background" Value="{StaticResource Blue}" />
+            </Style>
+            <Style x:Key="BorderRadius" TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+            <Style x:Key="DangerBtn" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource Danger}" />
+            </Style>
+            <Style x:Key="SuccessBtn" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource Success}" />
+            </Style>
+            <!--Typography-->
+            <Style x:Key="Header" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Foreground" Value="{StaticResource Dark}" />
+            </Style>
+
+            <Style x:Key="FinishedExamText" TargetType="{x:Type Grid}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static examVal:ExamStatus.Passed}}">
+                        <Setter Property="Background" Value="#80DED9"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Source={x:Static examVal:ExamStatus.Failed}}">
+                        <Setter Property="Background" Value="#DD614A"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
