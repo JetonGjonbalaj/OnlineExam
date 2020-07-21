@@ -18,13 +18,11 @@ namespace OnlineExam.ViewModels.User.Exam
 {
     public class CurrentExamViewModel : BaseViewModel
     {
-        private DatabaseContext _context;
         public BindingList<Models.ExamTaken> Exams { get; set; }
         public BindingList<string> Errors { get; set; }
 
         public CurrentExamViewModel()
         {
-            _context = ((App)Application.Current).Context;
 
             Exams = new BindingList<Models.ExamTaken>();
             Errors = new BindingList<string>();

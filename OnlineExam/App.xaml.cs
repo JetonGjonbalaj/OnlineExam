@@ -27,50 +27,11 @@ namespace OnlineExam
     /// </summary>
     public partial class App : Application
     {
-        private DatabaseContext _context;
         public User LoggedUser { get; private set; }
-        public DatabaseContext Context
-        {
-            get { return _context; }
-            set
-            {
-                if (value != null)
-                {
-                    _context = value;
-                }
-            }
-        }
+
         public App()
         {
-            //var query = new AllDepartmentsQueryHandler();
-            //var departments = query.Get().ToList();
-
-            //var departmentQuery = new OneDepartmentQuery(1);
-            //var query2 = new OneDepartmentQueryHandler(departmentQuery);
-            //var department = query2.Get();
-
-            //var course = new Course() { CourseName = "Test", Department = department };
-            //var command = new SaveCourseCommand(course);
-            //var handler = new SaveCourseCommandHandler(command);
-            //handler.Execute();
-
-            //department.DepartmentName = "";
-
-            //var courseQuery = new OneDepartmentQuery(500);
-            //var query2 = new OneDepartmentQueryHandler(courseQuery);
-            //var course = query2.Get();
-
-
-
-            //var command = new SaveDepartmentCommand(department);
-            //var handler = new SaveDepartmentCommandHandler(command);
-            //var response = handler.Execute();
-
-            //Console.WriteLine(response.Message);
-
-
             LoggedUser = null;
-            Context = new DatabaseContext();
         }
 
         public bool UserIsLogged()

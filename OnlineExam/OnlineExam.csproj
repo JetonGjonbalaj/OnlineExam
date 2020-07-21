@@ -223,6 +223,8 @@
     <Compile Include="Domain\Queries\Handler\ExamTaken\AllActiveExamTakenQueryHandler.cs" />
     <Compile Include="Domain\Queries\Handler\ExamTaken\AllFinishedExamsQueryHandler.cs" />
     <Compile Include="Domain\Queries\Handler\Exam\OneExamNoTrackingQueryHandler.cs" />
+    <Compile Include="Domain\Queries\Handler\Professor\LoginProfessorQueryHandler.cs" />
+    <Compile Include="Domain\Queries\Handler\Student\LoginStudentQueryHandler.cs" />
     <Compile Include="Domain\Queries\Query\Answer\OneCorrectAnswerQuery.cs" />
     <Compile Include="Domain\Queries\Query\ExamTaken\AllActiveExamTakenQuery.cs" />
     <Compile Include="Domain\Queries\Handler\Exam\AllAvailableExamsQueryHandler.cs" />
@@ -241,8 +243,10 @@
     <Compile Include="Domain\Queries\Query\Exam\AllStudentUpcomingExamsQuery.cs" />
     <Compile Include="Domain\Queries\Query\Exam\OneExamQuery.cs" />
     <Compile Include="Domain\Queries\Query\Professor\AllProfessorsQuery.cs" />
+    <Compile Include="Domain\Queries\Query\Professor\LoginProfessorQuery.cs" />
     <Compile Include="Domain\Queries\Query\Professor\OneProfessorQuery.cs" />
     <Compile Include="Domain\Queries\Query\Student\AllStudentsQuery.cs" />
+    <Compile Include="Domain\Queries\Query\Student\LoginStudentQuery.cs" />
     <Compile Include="Domain\Queries\Query\Student\OneStudentQuery.cs" />
     <Compile Include="Enums\ExamStatus.cs" />
     <Compile Include="Enums\Role.cs" />
@@ -250,25 +254,9 @@
     <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IQuery.cs" />
     <Compile Include="Interfaces\IQueryHandler.cs" />
-    <Compile Include="Migrations\20200706074221_test2.cs" />
-    <Compile Include="Migrations\20200706074221_test2.designer.cs">
-      <DependentUpon>20200706074221_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200706081004_NullWhenDeleted.cs" />
-    <Compile Include="Migrations\20200706081004_NullWhenDeleted.designer.cs">
-      <DependentUpon>20200706081004_NullWhenDeleted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200706085739_testtest.cs" />
-    <Compile Include="Migrations\20200706085739_testtest.designer.cs">
-      <DependentUpon>20200706085739_testtest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200720091233_DeleteQuestionAnswers.cs" />
-    <Compile Include="Migrations\20200720091233_DeleteQuestionAnswers.designer.cs">
-      <DependentUpon>20200720091233_DeleteQuestionAnswers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200720123218_ExamTakenResultAsInt.cs" />
-    <Compile Include="Migrations\20200720123218_ExamTakenResultAsInt.designer.cs">
-      <DependentUpon>20200720123218_ExamTakenResultAsInt.cs</DependentUpon>
+    <Compile Include="Migrations\20200721081938_DataBaseInit.cs" />
+    <Compile Include="Migrations\20200721081938_DataBaseInit.designer.cs">
+      <DependentUpon>20200721081938_DataBaseInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -297,7 +285,6 @@
     <Compile Include="ViewModels\Admin\Course\ShowCoursesViewModel.cs" />
     <Compile Include="ViewModels\Admin\Department\SaveDepartmentViewModel.cs" />
     <Compile Include="ViewModels\Admin\Department\ShowDepartmentsViewModel.cs" />
-    <Compile Include="ViewModels\Admin\Exam\EditExamViewModel.cs" />
     <Compile Include="ViewModels\Admin\Exam\SaveExamViewModel.cs" />
     <Compile Include="ViewModels\Admin\Exam\ShowExamsViewModel.cs" />
     <Compile Include="ViewModels\Admin\Professor\SaveProfessorViewModel.cs" />
@@ -324,9 +311,6 @@
     </Compile>
     <Compile Include="Views\Admin\Department\ShowDepartments.xaml.cs">
       <DependentUpon>ShowDepartments.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\Exam\EditExam.xaml.cs">
-      <DependentUpon>EditExam.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Exam\SaveExam.xaml.cs">
       <DependentUpon>SaveExam.xaml</DependentUpon>
@@ -383,10 +367,6 @@
     <Page Include="Views\Admin\Department\ShowDepartments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Admin\Exam\EditExam.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Admin\Exam\SaveExam.xaml">
       <SubType>Designer</SubType>
