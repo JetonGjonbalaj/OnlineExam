@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using OnlineExam.Context;
+using OnlineExam.Data;
 using OnlineExam.Domain.Commands.Command.Course;
 using OnlineExam.Domain.Commands.Command.Department;
 using OnlineExam.Domain.Commands.Handler.Course;
@@ -32,6 +33,8 @@ namespace OnlineExam
         public App()
         {
             LoggedUser = null;
+
+            DbInitializer.Initialize();
         }
 
         public bool UserIsLogged()

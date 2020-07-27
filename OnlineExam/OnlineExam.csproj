@@ -192,6 +192,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Context\DatabaseContext.cs" />
+    <Compile Include="Data\DbInitializer.cs" />
     <Compile Include="Domain\Commands\CommandResponse.cs" />
     <Compile Include="Domain\Commands\Command\Course\DeleteCourseCommand.cs" />
     <Compile Include="Domain\Commands\Command\Course\SaveCourseCommand.cs" />
